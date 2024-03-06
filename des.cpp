@@ -484,6 +484,12 @@ private:
             roundKeys[i] = getPC2Result(leftHalfKey + rightHalfKey);
         }
 
+        // print round keys
+        for (int i = 0; i < 16; i++)
+        {
+            cout << "Round " << i + 1 << " Key: " << binToHex(roundKeys[i]) << endl;
+        }
+
         return roundKeys;
     }
 
@@ -540,21 +546,15 @@ int main()
     DESEncryption des;
     string key = "133457799BBCDFF1";
     string plainText = "0123456789ABCDEF";
+
+    cout << "Encrytpion: \n";
     string cypherTextRes = des.encrypt(plainText, key);
     cout << "Cipher Text: " << cypherTextRes << endl;
 
+    cout << "\nDecryption: \n";
     string cypherText = "85E813540F0AB405";
     string plainTextRes = des.decrypt(cypherText, key);
     cout << "Plain Text: " << plainTextRes << endl;
-
-    if (cypherText == cypherTextRes && plainText == plainTextRes)
-    {
-        cout << "Encryption and Decryption are working fine" << endl;
-    }
-    else
-    {
-        cout << "Encryption and Decryption are not working fine" << endl;
-    }
 
     return 0;
 }
