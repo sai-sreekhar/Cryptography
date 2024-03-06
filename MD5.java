@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class MD5 {
 
   private static final int INITIAL_A = 0x67452301;
@@ -133,11 +135,10 @@ public class MD5 {
       "They are deterministic",
       "21BDS0387",
       "Sai Sreekar",
-      "abcdefghijklmnopqrstuvwxyz",
+      "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz",
     };
 
     for (String testString : stringArr) {
-      System.out.println(toHexString(testString.getBytes()));
       System.out.println(
         "0x" +
         toHexString(computeMD5(testString.getBytes())) +
